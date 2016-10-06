@@ -1,0 +1,25 @@
+{
+  "name": "async-waituntil-polyfill",
+  "version": "1.0.0",
+  "description": "Allows waitUntil to be called async on extendable events",
+  "main": "async-waituntil.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakearchibald/async-waituntil-polyfill.git"
+  },
+  "keywords": [
+    "waituntil",
+    "service",
+    "worker",
+    "fetch"
+  ],
+  "author": "Jake Archibald",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/jakearchibald/async-waituntil-polyfill/issues"
+  },
+  "homepage": "https://github.com/jakearchibald/async-waituntil-polyfill#readme"
+}

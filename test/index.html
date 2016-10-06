@@ -1,0 +1,13 @@
+<!doctype html>
+<script>
+  navigator.serviceWorker.onmessage = event => {
+    const pre = document.createElement('pre');
+    pre.textContent = event.data;
+    document.body.appendChild(pre);
+  };
+
+  navigator.serviceWorker.register('sw.js').then(reg => {
+    const newestWorker = reg.installing || reg.waiting || reg.active;
+    newestWorker.postMessage('DO YOUR THING');
+  });
+</script>

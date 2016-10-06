@@ -4,7 +4,8 @@
   const promisesMap = new WeakMap();
 
   ExtendableEvent.prototype.waitUntil = function(promise) {
-    let promises = promisesMap.get(this);
+    const extendableEvent = this;
+    let promises = promisesMap.get(extendableEvent);
 
     if (promises) {
       promises.push(Promise.resolve(promise));
@@ -12,10 +13,10 @@
     }
 
     promises = [Promise.resolve(promise)];
-    promisesMap.set(this, promises);
+    promisesMap.set(extendableEvent, promises);
 
     // call original method
-    return waitUntil.call(this, Promise.resolve().then(function processPromises() {
+    return waitUntil.call(extendableEvent, Promise.resolve().then(function processPromises() {
       const len = promises.length;
 
       // wait for all to settle
@@ -23,7 +24,7 @@
         // have new items been added? If so, wait again
         if (promises.length != len) return processPromises();
         // we're done!
-        promisesMap.delete(this);
+        promisesMap.delete(extendableEvent);
         // reject if one of the promises rejected
         return Promise.all(promises);
       });

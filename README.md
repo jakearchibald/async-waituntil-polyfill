@@ -30,7 +30,7 @@ This fails because `waitUntil` was called after the execution of the event handl
 
 We fixed this in the spec, so you can call `waitUntil` as long as the promises already passed to `waitUntil` & `respondWith` haven't settled yet.
 
-The browsers haven't caught up yet, but this polyfill makes it work as expected.
+The browsers haven't caught up yet ([Chrome issue](https://bugs.chromium.org/p/chromium/issues/detail?id=621440)), but this polyfill makes it work as expected.
 
 # Usage
 
